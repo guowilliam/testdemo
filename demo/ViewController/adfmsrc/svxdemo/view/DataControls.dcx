@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<DataControlConfigs xmlns="http://xmlns.oracle.com/adfm/configuration" version="12.1.3.10.8" id="DataControls"
+                    Package="svxdemo.view">
+  <AdapterDataControl id="demods" FactoryClass="oracle.adf.model.adapter.DataControlFactoryImpl"
+                      ImplDef="oracle.adf.model.adapter.rest.RestURLDCDefinition" SupportsTransactions="false"
+                      SupportsSortCollection="false" SupportsResetState="false" SupportsRangesize="false"
+                      SupportsFindMode="false" SupportsUpdates="false" Definition="svxdemo.view.demods"
+                      BeanClass="svxdemo.view.demods" xmlns="http://xmlns.oracle.com/adfm/datacontrol">
+    <Source>
+      <Definitions>
+        <Definition xmlns="http://xmlns.oracle.com/adfm/adapter/rest/xml" ConnectionName="demourl"
+                    Source="/getsvxdocfindall" HttpMethod="GET" id="getSvxDocumentFindAll" MethodRef="XSD"
+                    SchemaLocation="svxdemo/view/demods_getSvxDocumentFindAll_Schema.xsd" ensureKeyAttribute="true"
+                    dcStructureVersion="2" RootElement="svxDocuments"/>
+      </Definitions>
+    </Source>
+  </AdapterDataControl>
+</DataControlConfigs>

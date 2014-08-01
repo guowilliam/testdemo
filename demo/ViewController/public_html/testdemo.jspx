@@ -1,0 +1,115 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <f:view>
+        <af:document title="testdemo" id="d1">
+            <af:messages id="m1"/>
+            <af:form id="f1">
+                <af:panelGridLayout id="pgl1">
+                    <af:gridRow height="100%" id="gr1">
+                        <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc1">
+                            <!-- Content -->
+                            <af:table value="#{bindings.svxDocument.collectionModel}" var="row"
+                                      rows="#{bindings.svxDocument.rangeSize}"
+                                      emptyText="#{bindings.svxDocument.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                      rowBandingInterval="0"
+                                      selectedRowKeys="#{bindings.svxDocument.collectionModel.selectedRow}"
+                                      selectionListener="#{bindings.svxDocument.collectionModel.makeCurrent}"
+                                      rowSelection="single" fetchSize="#{bindings.svxDocument.rangeSize}"
+                                      filterModel="#{bindings.svxDocumentQuery.queryDescriptor}"
+                                      queryListener="#{bindings.svxDocumentQuery.processQuery}" filterVisible="true"
+                                      varStatus="vs" id="t1">
+                                <af:column sortProperty="#{bindings.svxDocument.hints.adviserUploaded.name}"
+                                           filterable="true" sortable="true"
+                                           headerText="#{bindings.svxDocument.hints.adviserUploaded.label}" id="c1">
+                                    <af:outputText value="#{row.adviserUploaded}"
+                                                   shortDesc="#{bindings.svxDocument.hints.adviserUploaded.tooltip}"
+                                                   id="ot1"/>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.svxDocument.hints.adviserViewable.name}"
+                                           filterable="true" sortable="true"
+                                           headerText="#{bindings.svxDocument.hints.adviserViewable.label}" id="c2">
+                                    <af:outputText value="#{row.adviserViewable}"
+                                                   shortDesc="#{bindings.svxDocument.hints.adviserViewable.tooltip}"
+                                                   id="ot2"/>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.svxDocument.hints.category.name}" filterable="true"
+                                           sortable="true" headerText="#{bindings.svxDocument.hints.category.label}"
+                                           id="c3">
+                                    <af:outputText value="#{row.category}"
+                                                   shortDesc="#{bindings.svxDocument.hints.category.tooltip}" id="ot3"/>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.svxDocument.hints.clientId.name}" filterable="true"
+                                           sortable="true" headerText="#{bindings.svxDocument.hints.clientId.label}"
+                                           id="c4">
+                                    <af:outputText value="#{row.clientId}"
+                                                   shortDesc="#{bindings.svxDocument.hints.clientId.tooltip}" id="ot4">
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.svxDocument.hints.clientId.format}"/>
+                                    </af:outputText>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.svxDocument.hints.comment1.name}" filterable="true"
+                                           sortable="true" headerText="#{bindings.svxDocument.hints.comment1.label}"
+                                           id="c5">
+                                    <af:outputText value="#{row.comment1}"
+                                                   shortDesc="#{bindings.svxDocument.hints.comment1.tooltip}" id="ot5"/>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.svxDocument.hints.contentType.name}"
+                                           filterable="true" sortable="true"
+                                           headerText="#{bindings.svxDocument.hints.contentType.label}" id="c6">
+                                    <af:outputText value="#{row.contentType}"
+                                                   shortDesc="#{bindings.svxDocument.hints.contentType.tooltip}"
+                                                   id="ot6">
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.svxDocument.hints.contentType.format}"/>
+                                    </af:outputText>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.svxDocument.hints.creator.name}" filterable="true"
+                                           sortable="true" headerText="#{bindings.svxDocument.hints.creator.label}"
+                                           id="c7">
+                                    <af:outputText value="#{row.creator}"
+                                                   shortDesc="#{bindings.svxDocument.hints.creator.tooltip}" id="ot7"/>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.svxDocument.hints.docId.name}" filterable="true"
+                                           sortable="true" headerText="#{bindings.svxDocument.hints.docId.label}"
+                                           id="c8">
+                                    <af:outputText value="#{row.docId}"
+                                                   shortDesc="#{bindings.svxDocument.hints.docId.tooltip}" id="ot8">
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.svxDocument.hints.docId.format}"/>
+                                    </af:outputText>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.svxDocument.hints.filename.name}" filterable="true"
+                                           sortable="true" headerText="#{bindings.svxDocument.hints.filename.label}"
+                                           id="c9">
+                                    <af:outputText value="#{row.filename}"
+                                                   shortDesc="#{bindings.svxDocument.hints.filename.tooltip}" id="ot9"/>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.svxDocument.hints.typeId.name}" filterable="true"
+                                           sortable="true" headerText="#{bindings.svxDocument.hints.typeId.label}"
+                                           id="c10">
+                                    <af:outputText value="#{row.typeId}"
+                                                   shortDesc="#{bindings.svxDocument.hints.typeId.tooltip}" id="ot10">
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.svxDocument.hints.typeId.format}"/>
+                                    </af:outputText>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.svxDocument.hints.comment10.name}" filterable="true"
+                                           sortable="true" headerText="#{bindings.svxDocument.hints.comment10.label}"
+                                           id="c11">
+                                    <af:outputText value="#{row.comment10}"
+                                                   shortDesc="#{bindings.svxDocument.hints.comment10.tooltip}"
+                                                   id="ot11">
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.svxDocument.hints.comment10.format}"/>
+                                    </af:outputText>
+                                </af:column>
+                            </af:table>
+                        </af:gridCell>
+                    </af:gridRow>
+                </af:panelGridLayout>
+            </af:form>
+        </af:document>
+    </f:view>
+</jsp:root>

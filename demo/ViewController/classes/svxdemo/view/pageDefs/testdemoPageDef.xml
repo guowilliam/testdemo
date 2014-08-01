@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.8" id="testdemoPageDef"
+                Package="svxdemo.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <methodIterator Binds="getSvxDocumentFindAll.result" DataControl="demods" RangeSize="25"
+                    BeanClass="svxdemo.view.demods.getSvxDocumentFindAll_Data_svxDocuments"
+                    id="getSvxDocumentFindAllIterator"/>
+    <accessorIterator MasterBinding="getSvxDocumentFindAllIterator" Binds="svxDocument" RangeSize="25"
+                      DataControl="demods" BeanClass="svxdemo.view.demods.getSvxDocumentFindAll_Data_svxDocument"
+                      id="svxDocumentIterator"/>
+    <searchRegion Binds="svxDocumentIterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="svxDocumentQuery"/>
+  </executables>
+  <bindings>
+    <methodAction id="getSvxDocumentFindAll" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="getSvxDocumentFindAll" IsViewObjectMethod="false" DataControl="demods"
+                  InstanceName="data.demods"
+                  ReturnName="data.demods.methodResults.getSvxDocumentFindAll_demods_getSvxDocumentFindAll_result"/>
+    <tree IterBinding="svxDocumentIterator" id="svxDocument">
+      <nodeDefinition DefName="svxdemo.view.demods.getSvxDocumentFindAll_Data_svxDocument" Name="svxDocument0">
+        <AttrNames>
+          <Item Value="adviserUploaded"/>
+          <Item Value="adviserViewable"/>
+          <Item Value="category"/>
+          <Item Value="clientId"/>
+          <Item Value="comment1"/>
+          <Item Value="contentType"/>
+          <Item Value="creator"/>
+          <Item Value="docId"/>
+          <Item Value="filename"/>
+          <Item Value="typeId"/>
+          <Item Value="comment10"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

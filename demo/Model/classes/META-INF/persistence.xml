@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+             version="2.0">
+  <persistence-unit name="Model">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <jta-data-source>java:/app/jdbc/jdbc/Connection1DS</jta-data-source>
+    <class>svxdemo.model.SvxDocument</class>
+    <properties>
+      <property name="eclipselink.target-server" value="WebLogic_10"/>
+      <property name="javax.persistence.jtaDataSource" value="java:/app/jdbc/jdbc/Connection1DS"/>
+    </properties>
+  </persistence-unit>
+  <persistence-unit name="Model-1" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>svxdemo.model.SvxDocument</class>
+    <properties>
+      <property name="javax.persistence.jdbc.driver" value="oracle.jdbc.OracleDriver"/>
+      <property name="javax.persistence.jdbc.url" value="jdbc:oracle:thin:@//169.254.172.8:1523/svxdev"/>
+      <property name="javax.persistence.jdbc.user" value="svx"/>
+      <property name="javax.persistence.jdbc.password" value="D6126E4647DB6280053534B5183B55FD"/>
+      <property name="eclipselink.logging.level" value="FINER"/>
+    </properties>
+  </persistence-unit>
+</persistence>
